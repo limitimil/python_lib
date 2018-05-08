@@ -42,6 +42,8 @@ class pivot(object):
     def update(self, dictlike):
         assert(pivotlike(dictlike))
         self.piv.update(dictlike)
+    def push(self, key, value):
+        self.update({key: self.piv.get(key, []) + [value]})
     def __str__(self):
         pp = pprint.PrettyPrinter(indent=4)
         return pp.pformat(self.piv) 
